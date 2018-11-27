@@ -5,6 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.content.Intent;
+import android.widget.TextView;
+
 
 /*
 import com.android.volley.Request;
@@ -20,7 +23,6 @@ import org.json.JSONObject;
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "FunNums:Main";
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +33,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(final View v) {
                 Log.d(TAG, "Start trivia button clicked");
+                Intent intent = new Intent(MainActivity.this, triviaActivity.class);
+                TextView type = (TextView)findViewById(R.id.type);
+                type.setText(R.string.trivia);
+                startActivity(intent);
                 //startAPICall();
             }
         });
@@ -40,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(final View v) {
                 Log.d(TAG, "Start year button clicked");
+                Intent intent = new Intent(MainActivity.this, triviaActivity.class);
+                startActivity(intent);
                 //startAPICall();
             }
         });
@@ -49,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(final View v) {
                 Log.d(TAG, "Start date button clicked");
+                Intent intent = new Intent(MainActivity.this, triviaActivity.class);
+                startActivity(intent);
                 //startAPICall();
             }
         });
@@ -58,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(final View v) {
                 Log.d(TAG, "Start math button clicked");
+                Intent intent = new Intent(MainActivity.this, triviaActivity.class);
+                startActivity(intent);
                 //startAPICall();
             }
         });
