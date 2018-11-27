@@ -5,4 +5,5 @@
     <string name="date">Date</string>
     <string name="math">Math</string>
     <string name="back">Back</string>
+    <string name="hint">Give me a number</string>
 </resources>
