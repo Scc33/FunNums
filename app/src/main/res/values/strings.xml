@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">FunNums</string>
     <string name="trivia">Trivia</string>
+    <string name="year">Year</string>
+    <string name="date">Date</string>
+    <string name="math">Math</string>
+    <string name="back">Back</string>
 </resources>

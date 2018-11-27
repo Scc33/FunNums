@@ -34,8 +34,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(final View v) {
                 Log.d(TAG, "Start trivia button clicked");
                 Intent intent = new Intent(MainActivity.this, triviaActivity.class);
-                TextView type = (TextView)findViewById(R.id.type);
-                type.setText(R.string.trivia);
+                intent.putExtra("TYPE","Trivia");
                 startActivity(intent);
                 //startAPICall();
             }
@@ -47,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(final View v) {
                 Log.d(TAG, "Start year button clicked");
                 Intent intent = new Intent(MainActivity.this, triviaActivity.class);
+                intent.putExtra("TYPE","Year");
                 startActivity(intent);
                 //startAPICall();
             }
@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(final View v) {
                 Log.d(TAG, "Start date button clicked");
                 Intent intent = new Intent(MainActivity.this, triviaActivity.class);
+                intent.putExtra("TYPE","Date");
                 startActivity(intent);
                 //startAPICall();
             }
@@ -69,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(final View v) {
                 Log.d(TAG, "Start math button clicked");
                 Intent intent = new Intent(MainActivity.this, triviaActivity.class);
+                intent.putExtra("TYPE","Math");
                 startActivity(intent);
                 //startAPICall();
             }
