@@ -7,4 +7,8 @@
     <string name="back">Back</string>
     <string name="hint">Give me a number</string>
     <string name="enter">Enter</string>
+    <string name="credit">Credits</string>
+    <string name="credits">Created by Sean Coughlin and Saud Alrasheed</string>
+    <string name="source">Credit to http://numbersapi.com/#random/date for all facts.</string>
+    <string name="filler">This is one big filler so I can test stuffs about the text box</string>
 </resources>
