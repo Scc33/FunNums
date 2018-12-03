@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -29,16 +30,19 @@ public class triviaActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        String type = intent.getStringExtra("TYPE");
-        TextView title = (TextView) findViewById(R.id.type);
+        final String type = intent.getStringExtra("TYPE");
 
+        final TextView title = (TextView) findViewById(R.id.type);
         title.setText(type);
+
+        final EditText input = (EditText) findViewById(R.id.editNumber);
 
         final Button enter = findViewById(R.id.enter);
         enter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
                 Log.d(TAG, "Enter button clicked");
+                title.setText(type + " " + input.getText());
                 startAPICall();
             }
         });
@@ -58,7 +62,7 @@ public class triviaActivity extends AppCompatActivity {
         try {
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
                     Request.Method.GET,
-                    "http://numbersapi.com/random/date?json",
+                    "http://numbersapi.com/random/trivia?json",
                     null,
                     new Response.Listener<JSONObject>() {
                         @Override
