@@ -14,6 +14,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 
 import org.json.JSONObject;
 import org.w3c.dom.Text;
@@ -21,7 +22,7 @@ import org.w3c.dom.Text;
 public class triviaActivity extends AppCompatActivity {
     private static final String TAG = "FunNums:Trivia";
 
-    private static RequestQueue requestQueue;
+    private RequestQueue requestQueue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,8 @@ public class triviaActivity extends AppCompatActivity {
 
         final TextView title = (TextView) findViewById(R.id.type);
         title.setText(type);
+
+        requestQueue = Volley.newRequestQueue(this);
 
         final EditText input = (EditText) findViewById(R.id.editNumber);
 
