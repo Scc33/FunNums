@@ -16,6 +16,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.w3c.dom.Text;
 
@@ -46,10 +47,22 @@ public class triviaActivity extends AppCompatActivity {
             public void onClick(final View v) {
                 Log.d(TAG, "Enter button clicked");
                 title.setText(type + " " + input.getText());
-                startAPICall();
+                System.out.println(input.getText());
+                String url = "http://numbersapi.com/" + input.getText() + "/" + type.toLowerCase() + "?json";
+                startAPICall(url);
             }
         });
-
+        final Button random = findViewById(R.id.random);
+        random.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View v) {
+                Log.d(TAG, "Random button clicked");
+                title.setText(type);
+                System.out.println(input.getText());
+                String url = "http://numbersapi.com/random/" + type.toLowerCase() + "?json";
+                startAPICall(url);
+            }
+        });
         final Button backButton = findViewById(R.id.backButton);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,18 +74,23 @@ public class triviaActivity extends AppCompatActivity {
         });
     }
 
-    void startAPICall() {
+    void startAPICall(String x) {
         try {
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
                     Request.Method.GET,
-                    "http://numbersapi.com/random/trivia?json",
+                    x,
                     null,
                     new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(final JSONObject response) {
-                            Log.d(TAG, response.toString());
-                            TextView factView = (TextView) findViewById(R.id.factView);
-                            factView.setText(response.toString());
+                            try {
+                                Log.d(TAG, response.toString());
+                                final TextView factView = (TextView) findViewById(R.id.factView);
+                                factView.setText(response.getString("text"));
+                            } catch (JSONException e) {
+                                //some exception handler code.
+                                e.printStackTrace();
+                            }
                         }
                     }, new Response.ErrorListener() {
                 @Override
