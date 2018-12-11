@@ -52,7 +52,7 @@
         android:layout_width="306dp"
         android:layout_height="187dp"
         android:gravity="center"
-        android:text="@string/filler"
+        android:text=""
         android:textSize="@dimen/normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

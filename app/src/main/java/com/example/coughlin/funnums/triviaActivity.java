@@ -18,7 +18,8 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
+
+import java.lang.Math;
 
 public class triviaActivity extends AppCompatActivity {
     private static final String TAG = "FunNums:Trivia";
@@ -46,8 +47,6 @@ public class triviaActivity extends AppCompatActivity {
             @Override
             public void onClick(final View v) {
                 Log.d(TAG, "Enter button clicked");
-                title.setText(type + " " + input.getText());
-                System.out.println(input.getText());
                 String url = "http://numbersapi.com/" + input.getText() + "/" + type.toLowerCase() + "?json";
                 startAPICall(url);
             }
@@ -57,8 +56,6 @@ public class triviaActivity extends AppCompatActivity {
             @Override
             public void onClick(final View v) {
                 Log.d(TAG, "Random button clicked");
-                title.setText(type);
-                System.out.println(input.getText());
                 String url = "http://numbersapi.com/random/" + type.toLowerCase() + "?json";
                 startAPICall(url);
             }
